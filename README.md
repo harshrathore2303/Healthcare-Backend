@@ -7,8 +7,8 @@
 
 ## Project Setup
 ```
-git clone https://github.com/harshrathore2303/Healthcare-Backend.git
-cd Healthcare-Backend
+git clone https://github.com/harshrathore2303/HealthcareBackend.git
+cd HealthcareBackend
 python -m venv .venv
 source venv/bin/activate
 pip install -r requirements.txt
