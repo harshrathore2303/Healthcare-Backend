@@ -28,7 +28,6 @@ class UserRegisteration(APIView):
             return Response({'token': token, 'msg':'Registration Successful'}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors)
 
-
 class UserLoginView(APIView):
     def post(self, request, format=None):
         serializer = UserLoginSerializer(data=request.data)

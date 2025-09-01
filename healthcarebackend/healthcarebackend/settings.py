@@ -19,8 +19,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-3@026!mj&^tbp5zg_k%$utl68_6=0$(6z!+_hj7nq3#$-(ypq_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -41,7 +39,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'doctors',
     'users',
-    'patients'
+    'patients',
+    'mapping'
 ]
 
 MIDDLEWARE = [
@@ -79,14 +78,23 @@ WSGI_APPLICATION = 'healthcarebackend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+from dotenv import load_dotenv
+import os
+
+# SECURITY WARNING: keep the secret key used in production secret!
+
+load_dotenv(BASE_DIR / ".env")
+print()
+SECRET_KEY = os.getenv("SECRET_KEY")
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'healthcare',
-        'USER': 'postgres',
-        'PASSWORD': '123456789',
-        'HOST': 'localhost',
-        'PORT': '5432'
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.getenv("DB_NAME"),
+        "USER": os.getenv("DB_USER"),
+        "PASSWORD": os.getenv("DB_PASSWORD"),
+        "HOST": os.getenv("DB_HOST"),
+        "PORT": os.getenv("DB_PORT"),
     }
 }
 
