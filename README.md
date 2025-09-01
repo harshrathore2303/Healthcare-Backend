@@ -1,5 +1,5 @@
 # Healthcare-Backend
-- Basic Django framework project stucture
+- Basic django framework project stucture
 - Django rest framework for restapi
 - jwt tokens for auth
 - validations
