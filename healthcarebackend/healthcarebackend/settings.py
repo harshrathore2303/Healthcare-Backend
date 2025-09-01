@@ -86,7 +86,7 @@ import os
 load_dotenv(BASE_DIR / ".env")
 print()
 SECRET_KEY = os.getenv("SECRET_KEY")
-
+STATIC_ROOT = BASE_DIR / "staticfiles"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
